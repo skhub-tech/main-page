@@ -1,0 +1,372 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8"></meta>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+    <title>InstaProMax - Premium Instagram Mod</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            text-align: center;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .header img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .header-text {
+            text-align: left;
+            flex: 1;
+        }
+        .header-text h1 {
+            font-size: clamp(18px, 4vw, 22px);
+            font-weight: 800;
+            color: #262626;
+            margin-bottom: 3px;
+            background: linear-gradient(90deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header-text small {
+            font-size: clamp(10px, 2.5vw, 12px);
+            color: #8e8e8e;
+            font-weight: 500;
+        }
+        .badge {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        .info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 15px 0;
+        }
+        .info-item {
+            background: rgba(245, 245, 245, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .info-item:hover {
+            transform: translateY(-3px);
+            background: rgba(240, 240, 240, 0.9);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        .info-item strong {
+            display: block;
+            font-size: clamp(10px, 2.5vw, 12px);
+            color: #8e8e8e;
+            margin-bottom: 5px;
+        }
+        .info-item span {
+            font-size: clamp(12px, 3vw, 14px);
+            font-weight: 600;
+            color: #262626;
+        }
+        .download-btn {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            font-size: clamp(16px, 4vw, 18px);
+            font-weight: 700;
+            padding: 14px;
+            width: 100%;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            margin: 15px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(188, 24, 136, 0.3);
+        }
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(188, 24, 136, 0.4);
+        }
+        .download-btn:active {
+            transform: translateY(1px);
+        }
+        .download-btn::after {
+            content: '→';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .download-btn:hover::after {
+            opacity: 1;
+            right: 15px;
+        }
+        .sub-buttons {
+            display: none;
+            margin: 10px 0;
+            animation: fadeIn 0.4s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .sub-buttons button {
+            background: linear-gradient(45deg, #f5f7fa, #e4e8f0);
+            color: #262626;
+            font-size: clamp(14px, 3.5vw, 15px);
+            font-weight: 600;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        .sub-buttons button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .sub-buttons button::before {
+            content: '⬇';
+            font-size: 14px;
+        }
+        .screenshots {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 15px 0;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        .screenshots::-webkit-scrollbar {
+            display: none;
+        }
+        .screenshots img {
+            width: 150px;
+            height: auto;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        @media (max-width: 400px) {
+            .screenshots img {
+                width: 120px;
+            }
+        }
+        .screenshots img:hover {
+            transform: scale(1.08);
+        }
+        .features {
+            text-align: left;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(245, 245, 245, 0.7);
+            border-radius: 12px;
+        }
+        .features h3 {
+            font-size: clamp(16px, 4vw, 18px);
+            margin-bottom: 12px;
+            color: #262626;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .features h3::before {
+            content: '✨';
+        }
+        .features p {
+            padding: 6px 0;
+            font-size: clamp(13px, 3vw, 14px);
+            color: #262626;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .features p::before {
+            content: '✔';
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 15px;
+                border-radius: 15px;
+            }
+            .header {
+                gap: 12px;
+                margin-bottom: 15px;
+            }
+            .header img {
+                width: 50px;
+                height: 50px;
+            }
+            .info {
+                gap: 8px;
+            }
+            .info-item {
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px 10px;
+                border-radius: 12px;
+            }
+            .header {
+                gap: 10px;
+            }
+            .header img {
+                width: 45px;
+                height: 45px;
+            }
+            .info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .download-btn {
+                padding: 12px;
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img alt="Logo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiculxzbXoYvuVbT50LNufH-4QjOA0g6qTNLJ_2x6WHBt-eMwISOtj5NWqdV1jOHhNeEpP8QVOxLX5yvJhtohjM1KtaxqQqhXDRiaiskHIqsvZL0fhCjNkgMPidrjhFDHVATb_A7S24SpiWlE2ND2eAJKBr7lHtyW6_z9jGC-kbOrS0al5flY5EqJJr4gQ/w680/ig_launcher_background.png" />
+            <div class="header-text">
+                <h1>InstaProMax</h1>
+                <small>Premium Instagram Mod by SkMods</small>
+                <div class="badge">Contains Ads • In-App Purchases</div>
+            </div>
+        </div>
+
+        <div class="info">
+            <div class="info-item">
+                <strong>Version</strong>
+                <span>386.0.0.46.84</span>
+            </div>
+            <div class="info-item">
+                <strong>Size</strong>
+                <span>130MB</span>
+            </div>
+            <div class="info-item">
+                <strong>Downloads</strong>
+                <span>100M+</span>
+            </div>
+            <div class="info-item">
+                <strong>Android</strong>
+                <span>10.0+</span>
+            </div>
+            <div class="info-item">
+                <strong>Developer</strong>
+                <span>SkMods</span>
+            </div>
+            <div class="info-item">
+                <strong>Servers</strong>
+                <span>Devuploads</span>
+            </div>
+        </div>
+
+        <button class="download-btn" onclick="toggleSubButtons()">Download Now</button>
+
+        <div class="sub-buttons" id="sub-buttons">
+            <button onclick="location.href='https://skmodssofficial.blogspot.com/2025/02/instamaxpro-v146.html'">InstaProMax (Full Version)</button>
+            <button onclick="location.href='https://skmodssofficial.blogspot.com/2024/07/instamax-lite-instagram-prov190.html'">InstaMini (32bit Lite)</button>
+        </div>
+
+        <div class="screenshots">
+            <img alt="Screenshot 1" src="https://i.ibb.co/sWYzYk3/s1.jpg" />
+            <img alt="Screenshot 2" src="https://i.ibb.co/vXcTDjS/s3.jpg" />
+            <img alt="Screenshot 3" src="https://i.ibb.co/wzgn2nL/s4.jpg" />
+        </div>
+
+        <div class="features">
+            <h3>Premium Features</h3>
+            <p>Hide Media from Gallery</p>
+            <p>Lock Chat with PIN</p>
+            <p>Download Photos/Videos/Stories</p>
+            <p>No Ads Experience</p>
+            <p>Advanced Privacy Controls</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubButtons() {
+            var subButtons = document.getElementById("sub-buttons");
+            subButtons.style.display = subButtons.style.display === "none" || subButtons.style.display === "" ? "block" : "none";
+            
+            var mainBtn = document.querySelector(".download-btn");
+            if (subButtons.style.display === "block") {
+                mainBtn.textContent = "Choose Version";
+                mainBtn.style.background = "linear-gradient(45deg, #4a6cf7, #2541b2)";
+            } else {
+                mainBtn.textContent = "Download Now";
+                mainBtn.style.background = "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)";
+            }
+        }
+    </script>
+</body>
+</html>
