@@ -5,8 +5,8 @@
   "version": "14.17",
   "size": "130MB",
   "downloads": "5,000+ Downloads",
-  "buttonText": "Download Now",
-  "buttonTextSecond": "Continue Download",
+  "buttonText": "start Download",
+  "buttonTextSecond": "Install",
   "infoText": "Download the latest version of InstaMax with enhanced features ",
   "appIcon": "https://skhub-tech.github.io/Landing-page/app-icon.png"
 }
