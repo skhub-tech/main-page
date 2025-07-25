@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loading...</title>
-  <meta name="description" content="Download APK safely and fast. Verified by SKMods.">
+  <meta name="description" content="Download APK safely and fast. Verified by skhu-btech.">
 
   <!-- Open Graph Tags -->
   <meta property="og:title" content="Loading...">
-  <meta property="og:description" content="Download APK safely and fast. Verified by SKMods.">
+  <meta property="og:description" content="Download APK safely and fast. Verified by skhu-btech.">
   <meta property="og:image" content="">
   <meta property="og:url" content="https://sahitya000.github.io/instamax_ads/">
   <meta property="og:type" content="website">
@@ -460,11 +460,12 @@
     }
   </style>
 </head>
+  <script type='text/javascript' src='//derideskid.com/3d/e9/92/3de99286ed88d0f96248de40236633b9.js'></script>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
     <a href="/">Home</a>
-    <h1>SKMods</h1>
+    <h1>SKTECH</h1>
   </nav>
 
   <!-- Main Content -->
@@ -476,7 +477,7 @@
       </div>
       <div class="app-info">
         <h1 id="appName">Loading...</h1>
-        <p id="verifiedText">Verified by SKMods</p>
+        <p id="verifiedText">Verified by skhu-btech</p>
         <div class="details" id="details">
           Developer: Loading...<br>
           Version: Loading... • Loading...<br>
@@ -489,7 +490,7 @@
     <div class="ads-container">
       <script type='text/javascript' src='//derideskid.com/35/41/e9/3541e932cb25237e89e4d40ce6461dff.js'></script>
     </div>
-
+<div class="info"> first click on start download, after that come back and install</div>
     <button id="downloadBtn">Download</button>
     <div class="info" id="infoText">Download APK safely and fast</div>
 
@@ -514,8 +515,8 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2023 SKMods. All rights reserved.</p>
-    <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+    <p>&copy; 2023 SKtech. All rights reserved.</p>
+    <p><a href="https://telegram.me/sktech_000">Privacy Policy</a> | <a href="">Terms of Service</a></p>
   </footer>
 
   <script>
@@ -549,8 +550,7 @@
       const fallbackImages = [
         "https://via.placeholder.com/1080x1920?text=Screenshot+1",
         "https://via.placeholder.com/1080x1920?text=Screenshot+2",
-        "https://via.placeholder.com/1080x1920?text=Screenshot+3",
-        "https://via.placeholder.com/1080x1920?text=Screenshot+4"
+        "https://via.placeholder.com/1080x1920?text=Screenshot+3"
       ];
       initGallery(fallbackImages);
       initImagePreview();
@@ -565,7 +565,7 @@
       document.querySelector('meta[property="og:title"]').content = (strings.appName || "App") + " - Download";
       document.querySelector('meta[property="og:description"]').content = strings.infoText || "Download APK safely and fast";
       
-      document.getElementById("verifiedText").textContent = strings.verifiedText || "Verified by SKMods";
+      document.getElementById("verifiedText").textContent = strings.verifiedText || "Verified by skhu-btech";
       document.getElementById("details").innerHTML = `
         Developer: ${strings.developer || "Unknown"}<br>
         Version: ${strings.version || "1.0"} • ${strings.size || "10MB"}<br>
@@ -717,4 +717,173 @@
           btn.textContent = strings.buttonTextSecond || "Continue Download";
           clicked = true;
         } else {
-          btn.style.dis
+          btn.style.display = "none";
+          circle.style.display = "block";
+          let progress = 0;
+          const interval = setInterval(() => {
+            progress++;
+            circle.style.background = `conic-gradient(
+              var(--ig-purple) ${progress * 1.8}deg,
+              var(--ig-pink) ${progress * 2.7}deg,
+              var(--ig-orange) ${progress * 3.6}deg,
+              var(--ig-yellow) ${progress * 4.5}deg,
+              #e0e0e0 0deg
+            )`;
+            if (progress >= 100) {
+              clearInterval(interval);
+              setTimeout(() => { 
+                if (ads.apkLink) {
+                  window.location.href = ads.apkLink;
+                } else {
+                  btn.style.display = "block";
+                  circle.style.display = "none";
+                  alert("Download link not available");
+                }
+              }, 500);
+            }
+          }, 50);
+        }
+      });
+    }
+
+    // Gallery control functions
+    function startAutoScroll() {
+      if (autoScrollInterval) clearInterval(autoScrollInterval);
+      autoScrollInterval = setInterval(nextSlide, 5000);
+    }
+    
+    function handleTouchStart(e) {
+      clearInterval(autoScrollInterval);
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      isDragging = true;
+      horizontalDrag = false;
+    }
+    
+    function handleTouchMove(e) {
+      if (!isDragging) return;
+      
+      const x = e.touches[0].clientX;
+      const y = e.touches[0].clientY;
+      const diffX = startX - x;
+      const diffY = startY - y;
+      
+      // Determine if this is primarily a horizontal swipe
+      if (!horizontalDrag && Math.abs(diffX) > Math.abs(diffY)) {
+        horizontalDrag = true;
+      }
+      
+      if (horizontalDrag) {
+        e.preventDefault();
+        const galleryContainer = document.getElementById('galleryContainer');
+        const totalSlides = document.querySelectorAll('.gallery-slide').length;
+        const dragOffset = (diffX / window.innerWidth) * 100;
+        let position = Math.max(0, Math.min(currentSlide * 100 + dragOffset, (totalSlides - 1) * 100));
+        
+        galleryContainer.style.transition = 'none';
+        galleryContainer.style.transform = `translateX(-${position}%)`;
+      }
+    }
+    
+    function handleTouchEnd(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      
+      if (horizontalDrag) {
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > 50) {
+          diff > 0 ? nextSlide() : prevSlide();
+        } else {
+          goToSlide(currentSlide);
+        }
+      }
+      
+      horizontalDrag = false;
+      startAutoScroll();
+    }
+    
+    function handleMouseDown(e) {
+      clearInterval(autoScrollInterval);
+      startX = e.clientX;
+      startY = e.clientY;
+      isDragging = true;
+      horizontalDrag = false;
+    }
+    
+    function handleMouseMove(e) {
+      if (!isDragging) return;
+      
+      const x = e.clientX;
+      const y = e.clientY;
+      const diffX = startX - x;
+      const diffY = startY - y;
+      
+      // Determine if this is primarily a horizontal drag
+      if (!horizontalDrag && Math.abs(diffX) > Math.abs(diffY)) {
+        horizontalDrag = true;
+      }
+      
+      if (horizontalDrag) {
+        e.preventDefault();
+        const galleryContainer = document.getElementById('galleryContainer');
+        const totalSlides = document.querySelectorAll('.gallery-slide').length;
+        const dragOffset = (diffX / window.innerWidth) * 100;
+        let position = Math.max(0, Math.min(currentSlide * 100 + dragOffset, (totalSlides - 1) * 100));
+        
+        galleryContainer.style.transition = 'none';
+        galleryContainer.style.transform = `translateX(-${position}%)`;
+      }
+    }
+    
+    function handleMouseUp(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      
+      if (horizontalDrag) {
+        const endX = e.clientX;
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > 50) {
+          diff > 0 ? nextSlide() : prevSlide();
+        } else {
+          goToSlide(currentSlide);
+        }
+      }
+      
+      horizontalDrag = false;
+      startAutoScroll();
+    }
+    
+    function nextSlide() {
+      const totalSlides = document.querySelectorAll('.gallery-slide').length;
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateGallery();
+    }
+    
+    function prevSlide() {
+      const totalSlides = document.querySelectorAll('.gallery-slide').length;
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateGallery();
+    }
+    
+    function goToSlide(slideIndex) {
+      currentSlide = slideIndex;
+      updateGallery();
+    }
+    
+    function updateGallery() {
+      const galleryContainer = document.getElementById('galleryContainer');
+      const dots = document.querySelectorAll('.gallery-dot');
+      
+      galleryContainer.style.transition = 'transform 0.8s ease';
+      galleryContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+  </script>
+</body>
+</html>
