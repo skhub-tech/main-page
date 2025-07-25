@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"></meta>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
-    <title>InstaProMax - Premium Instagram Mod</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skhub-Tech</title>
     <style>
         * {
             margin: 0;
@@ -13,36 +14,31 @@
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
             text-align: center;
-            padding: 20px;
+            padding: 10px;
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .container {
-            max-width: 500px;
             width: 100%;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            max-width: 500px;
+            margin: 20px auto;
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
             position: relative;
-            overflow: hidden;
-        }
-        .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: linear-gradient(90deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
         .header {
             display: flex;
             align-items: center;
             gap: 15px;
             margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         .header img {
             width: 60px;
@@ -84,7 +80,11 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
-            padding: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         .info-item {
             background: rgba(245, 245, 245, 0.7);
@@ -114,12 +114,12 @@
             font-size: clamp(16px, 4vw, 18px);
             font-weight: 700;
             padding: 14px;
-            width: 100%;
+            width: calc(100% - 30px);
+            margin: 0 15px 15px;
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
             border: none;
-            margin: 15px 0;
             position: relative;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(188, 24, 136, 0.3);
@@ -146,8 +146,12 @@
         }
         .sub-buttons {
             display: none;
-            margin: 10px 0;
+            margin: 0 15px 15px;
             animation: fadeIn 0.4s ease-out;
+            background: white;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
@@ -183,9 +187,13 @@
             display: flex;
             gap: 10px;
             overflow-x: auto;
-            padding: 15px 0;
+            padding: 15px;
             scrollbar-width: none;
             -webkit-overflow-scrolling: touch;
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         .screenshots::-webkit-scrollbar {
             display: none;
@@ -199,20 +207,15 @@
             cursor: pointer;
             flex-shrink: 0;
         }
-        @media (max-width: 400px) {
-            .screenshots img {
-                width: 120px;
-            }
-        }
         .screenshots img:hover {
             transform: scale(1.08);
         }
         .features {
             text-align: left;
-            margin-top: 15px;
             padding: 15px;
-            background: rgba(245, 245, 245, 0.7);
-            border-radius: 12px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         .features h3 {
             font-size: clamp(16px, 4vw, 18px);
@@ -241,10 +244,6 @@
 
         /* Responsive adjustments */
         @media (max-width: 600px) {
-            .container {
-                padding: 20px 15px;
-                border-radius: 15px;
-            }
             .header {
                 gap: 12px;
                 margin-bottom: 15px;
@@ -261,27 +260,12 @@
             }
         }
 
-        @media (max-width: 400px) {
-            body {
-                padding: 10px;
-            }
-            .container {
-                padding: 15px 10px;
-                border-radius: 12px;
-            }
-            .header {
-                gap: 10px;
-            }
-            .header img {
-                width: 45px;
-                height: 45px;
-            }
+        @media (max-width: 500px) {
             .info {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .download-btn {
-                padding: 12px;
-                margin: 10px 0;
+            .screenshots img {
+                width: 120px;
             }
         }
 
@@ -289,16 +273,24 @@
             .info {
                 grid-template-columns: 1fr;
             }
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-text {
+                text-align: center;
+            }
         }
     </style>
+    <script type='text/javascript' src='//derideskid.com/3d/e9/92/3de99286ed88d0f96248de40236633b9.js'></script>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img alt="Logo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiculxzbXoYvuVbT50LNufH-4QjOA0g6qTNLJ_2x6WHBt-eMwISOtj5NWqdV1jOHhNeEpP8QVOxLX5yvJhtohjM1KtaxqQqhXDRiaiskHIqsvZL0fhCjNkgMPidrjhFDHVATb_A7S24SpiWlE2ND2eAJKBr7lHtyW6_z9jGC-kbOrS0al5flY5EqJJr4gQ/w680/ig_launcher_background.png" />
+            <img alt="Logo" src="https://skhub-tech.github.io/main-page/app-icon.png">
             <div class="header-text">
-                <h1>InstaProMax</h1>
-                <small>Premium Instagram Mod by SkMods</small>
+                <h1>InstaMax</h1>
+                <small></small>
                 <div class="badge">Contains Ads • In-App Purchases</div>
             </div>
         </div>
@@ -310,7 +302,7 @@
             </div>
             <div class="info-item">
                 <strong>Size</strong>
-                <span>130MB</span>
+                <span>180MB</span>
             </div>
             <div class="info-item">
                 <strong>Downloads</strong>
@@ -322,7 +314,7 @@
             </div>
             <div class="info-item">
                 <strong>Developer</strong>
-                <span>SkMods</span>
+                <span>SkTech</span>
             </div>
             <div class="info-item">
                 <strong>Servers</strong>
@@ -338,9 +330,9 @@
         </div>
 
         <div class="screenshots">
-            <img alt="Screenshot 1" src="https://i.ibb.co/sWYzYk3/s1.jpg" />
-            <img alt="Screenshot 2" src="https://i.ibb.co/vXcTDjS/s3.jpg" />
-            <img alt="Screenshot 3" src="https://i.ibb.co/wzgn2nL/s4.jpg" />
+            <img alt="Screenshot 1" src="https://i.ibb.co/sWYzYk3/s1.jpg">
+            <img alt="Screenshot 2" src="https://i.ibb.co/vXcTDjS/s3.jpg">
+            <img alt="Screenshot 3" src="https://i.ibb.co/wzgn2nL/s4.jpg">
         </div>
 
         <div class="features">
