@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loading...</title>
-  <meta name="description" content="Download APK safely and fast. Verified by skhu-btech.">
+  <meta name="description" content="Download APK safely and fast. Verified by SKMods.">
 
   <!-- Open Graph Tags -->
   <meta property="og:title" content="Loading...">
-  <meta property="og:description" content="Download APK safely and fast. Verified by skhu-btech.">
+  <meta property="og:description" content="Download APK safely and fast. Verified by SKMods.">
   <meta property="og:image" content="">
   <meta property="og:url" content="https://sahitya000.github.io/instamax_ads/">
   <meta property="og:type" content="website">
@@ -460,12 +460,11 @@
     }
   </style>
 </head>
-  <script type='text/javascript' src='//derideskid.com/3d/e9/92/3de99286ed88d0f96248de40236633b9.js'></script>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
     <a href="/">Home</a>
-    <h1>SKTECH</h1>
+    <h1>SKMods</h1>
   </nav>
 
   <!-- Main Content -->
@@ -477,7 +476,7 @@
       </div>
       <div class="app-info">
         <h1 id="appName">Loading...</h1>
-        <p id="verifiedText">Verified by skhu-btech</p>
+        <p id="verifiedText">Verified by SKMods</p>
         <div class="details" id="details">
           Developer: Loading...<br>
           Version: Loading... • Loading...<br>
@@ -490,7 +489,7 @@
     <div class="ads-container">
       <script type='text/javascript' src='//derideskid.com/35/41/e9/3541e932cb25237e89e4d40ce6461dff.js'></script>
     </div>
-<div class="info"> first click on start download, after that come back and install</div>
+
     <button id="downloadBtn">Download</button>
     <div class="info" id="infoText">Download APK safely and fast</div>
 
@@ -515,8 +514,8 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2023 SKtech. All rights reserved.</p>
-    <p><a href="https://telegram.me/sktech_000">Privacy Policy</a> | <a href="">Terms of Service</a></p>
+    <p>&copy; 2023 SKMods. All rights reserved.</p>
+    <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
   </footer>
 
   <script>
@@ -550,7 +549,8 @@
       const fallbackImages = [
         "https://via.placeholder.com/1080x1920?text=Screenshot+1",
         "https://via.placeholder.com/1080x1920?text=Screenshot+2",
-        "https://via.placeholder.com/1080x1920?text=Screenshot+3"
+        "https://via.placeholder.com/1080x1920?text=Screenshot+3",
+        "https://via.placeholder.com/1080x1920?text=Screenshot+4"
       ];
       initGallery(fallbackImages);
       initImagePreview();
@@ -565,7 +565,7 @@
       document.querySelector('meta[property="og:title"]').content = (strings.appName || "App") + " - Download";
       document.querySelector('meta[property="og:description"]').content = strings.infoText || "Download APK safely and fast";
       
-      document.getElementById("verifiedText").textContent = strings.verifiedText || "Verified by skhu-btech";
+      document.getElementById("verifiedText").textContent = strings.verifiedText || "Verified by SKMods";
       document.getElementById("details").innerHTML = `
         Developer: ${strings.developer || "Unknown"}<br>
         Version: ${strings.version || "1.0"} • ${strings.size || "10MB"}<br>
@@ -713,4 +713,8 @@
       
       btn.addEventListener("click", () => {
         if (!clicked) {
-          if (ads.adLink) window.open(ad
+          if (ads.adLink) window.open(ads.adLink, "_blank");
+          btn.textContent = strings.buttonTextSecond || "Continue Download";
+          clicked = true;
+        } else {
+          btn.style.dis
